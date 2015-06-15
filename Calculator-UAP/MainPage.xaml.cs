@@ -280,6 +280,28 @@ namespace Calculator_UAP
             }
         }
 
+        private void svBt_Click(object sender, RoutedEventArgs e)
+        {
+            if (splitView.IsPaneOpen == false)
+            {
+                splitView.IsPaneOpen = true;
+            }
+            else
+            {
+                splitView.IsPaneOpen = false;
+            }
+        }
+
+        private void mainBt_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
+        }
+
+        private void aboutBt_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(AboutPage));
+        }
+
         private void dotBt_Click(object sender, RoutedEventArgs e)
         {
             if (!ClickHandler.isDot(numDisplay.Text))

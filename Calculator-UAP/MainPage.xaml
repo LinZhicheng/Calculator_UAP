@@ -37,6 +37,7 @@
                             </DiscreteObjectKeyFrame>
                         </ObjectAnimationUsingKeyFrames>
                         <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="itemsControl" d:IsOptimized="True"/>
+                        <DoubleAnimation Duration="0" To="350" Storyboard.TargetProperty="(SplitView.OpenPaneLength)" Storyboard.TargetName="splitView" d:IsOptimized="True"/>
                     </Storyboard>
                 </VisualState>
                 <VisualState x:Name="VisualStatePhone">
@@ -93,6 +94,7 @@
                                 </DiscreteObjectKeyFrame.Value>
                             </DiscreteObjectKeyFrame>
                         </ObjectAnimationUsingKeyFrames>
+                        <DoubleAnimation Duration="0" To="350" Storyboard.TargetProperty="(SplitView.OpenPaneLength)" Storyboard.TargetName="splitView" d:IsOptimized="True"/>
                     </Storyboard>
                 </VisualState>
             </VisualStateGroup>
@@ -103,6 +105,24 @@
             <RowDefinition Height="150"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <Button x:Name="svBt" BorderThickness="0" Grid.Row="0" Width="75" VerticalAlignment="Stretch" Background="Transparent" Click="svBt_Click">
+            <TextBlock FontFamily="Segoe MDL2 Assets" FontSize="36" Text="&#xE700;"/>
+        </Button>
+
+        <SplitView x:Name="splitView" Grid.Row="0" Grid.RowSpan="4" IsPaneOpen="False" DisplayMode="Overlay" PaneBackground="DimGray">
+            <SplitView.Pane>
+                <RelativePanel x:Name="svPanel">
+                    <Button x:Name="listBt" BorderThickness="0" Background="Transparent" Click="svBt_Click" Width="75" Height="50">
+                        <TextBlock Text="&#xE700;" FontFamily="Segoe MDL2 Assets" FontSize="36"/>
+                    </Button>
+                    
+                    <Button x:Name="mainBt" Content="主页" BorderThickness="0" Background="Transparent" Height="50" HorizontalAlignment="Stretch" RelativePanel.Below="listBt" Click="mainBt_Click"/>
+                    
+                    <Button x:Name="aboutBt" Content="关于" BorderThickness="0" Background="Transparent" Height="50" HorizontalAlignment="Stretch" RelativePanel.Below="mainBt" Click="aboutBt_Click"/>
+                </RelativePanel>
+            </SplitView.Pane>
+        </SplitView>
 
         <Button x:Name="historyBt" Grid.Row="0" Grid.Column="0" Width="50" HorizontalAlignment="Right" VerticalAlignment="Stretch" Click="historyBt_Click" Margin="-14,0,0,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
             <SymbolIcon Symbol="Clock"/>
